@@ -3,32 +3,53 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Narvaez Rocío — Portfolio</title>
-<meta name="description" content="Portfolio de Rocío Narvaez, arquitecta. Selección de obras: vivienda, paisaje y espacio colectivo. Mendoza, Argentina.">
+<title>Rocío Narvaez — Arquitecta · Portfolio | Mendoza</title>
+<meta name="description" content="Portfolio de Rocío Narvaez, arquitecta (Universidad de Congreso, Mendoza). Selección de obras: vivienda, paisaje y espacio colectivo.">
+<meta name="author" content="Rocío Narvaez">
 <meta name="theme-color" content="#efeee9">
+<!-- TODO: reemplazar https://DOMINIO por el dominio definitivo (también en robots.txt y sitemap.xml) -->
+<link rel="canonical" href="https://DOMINIO/">
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
-<meta property="og:type" content="website">
+<meta property="og:type" content="profile">
 <meta property="og:locale" content="es_AR">
-<meta property="og:title" content="Narvaez Rocío — Portfolio">
-<meta property="og:description" content="Arquitecta. Selección de obras: vivienda, paisaje y espacio colectivo.">
-<!-- TODO: reemplazar por la URL absoluta cuando tengas el dominio, ej. https://tu-dominio.vercel.app/assets/og.jpg -->
-<meta property="og:image" content="/assets/og.jpg">
+<meta property="og:site_name" content="Rocío Narvaez — Arquitecta">
+<meta property="og:url" content="https://DOMINIO/">
+<meta property="og:title" content="Rocío Narvaez — Arquitecta · Portfolio">
+<meta property="og:description" content="Arquitecta. Selección de obras: vivienda, paisaje y espacio colectivo. Mendoza, Argentina.">
+<meta property="og:image" content="https://DOMINIO/assets/og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Portfolio de Rocío Narvaez, arquitecta">
 <meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Rocío Narvaez",
+  "jobTitle": "Arquitecta",
+  "url": "https://DOMINIO/",
+  "image": "https://DOMINIO/assets/og.jpg",
+  "email": "mailto:roocinarvaez28@gmail.com",
+  "address": { "@type": "PostalAddress", "addressLocality": "Guaymallén", "addressRegion": "Mendoza", "addressCountry": "AR" },
+  "alumniOf": { "@type": "CollegeOrUniversity", "name": "Universidad de Congreso" },
+  "knowsLanguage": ["es", "en"],
+  "sameAs": ["https://www.linkedin.com/in/rocio-narvaez-b86276258"]
+}
+</script>
+<link rel="preload" as="image" href="/assets/img/portada.jpg" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&family=IBM+Plex+Serif:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500&family=IBM+Plex+Serif:wght@400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/styles.css">
-
 </head>
 <body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
 <aside class="sidebar">
   <a class="brand" href="#top">
     <strong>Narvaez Rocío</strong>
     <small>Arquitectura</small>
   </a>
-  <nav class="side-nav">
+  <nav class="side-nav" aria-label="Obras">
     <div class="label">Obras</div>
     <a href="#habitar" data-id="habitar"><em>01</em><span>Habitar la altura</span></a>
 <a href="#colectivas" data-id="colectivas"><em>02</em><span>Viviendas colectivas</span></a>
@@ -41,12 +62,17 @@
   <div class="side-foot">
     <a href="#perfil">Perfil</a>
     <a href="#indice">Índice</a>
-    <a href="#colophon">Ficha</a>
     <a class="side-cta" href="mailto:roocinarvaez28@gmail.com">Contacto ↗</a>
   </div>
 </aside>
 
-<main>
+<nav class="m-bar" aria-label="Navegación">
+  <button class="m-toggle" type="button" aria-expanded="false" aria-controls="mSheet">Obras</button>
+  <a class="m-cta" href="mailto:roocinarvaez28@gmail.com">Contacto ↗</a>
+</nav>
+<div class="m-sheet" id="mSheet" hidden></div>
+
+<main id="contenido">
   <header class="cover" id="top">
     <div class="cover-photo" aria-hidden="true"></div>
     <div class="cover-top">
@@ -57,7 +83,7 @@
     <div class="cover-bottom">
       <p>Selección de obras. Documentación de proyecto, representación y memoria descriptiva.</p>
       <div class="cover-meta">
-        <span>2026</span>
+        <span>2025</span>
         <span>Universidad de Congreso</span>
         <span>Mendoza</span>
       </div>
@@ -80,7 +106,7 @@
   </section>
 
   <section class="section idx" id="indice">
-    <div class="section-head"><b>Índice</b><span>01 — 07</span></div>
+    <div class="section-head"><h2>Índice</h2><span>01 — 07</span></div>
     <a class="idx-row" href="#habitar">
       <span class="c-num">01</span>
       <span class="c-title">Habitar la altura</span>
@@ -142,8 +168,8 @@
     </div>
     
 <figure class="plate">
-  <button class="plate-frame" type="button" data-label="01 — Habitar la altura · 03" aria-label="Ampliar 01 — Habitar la altura">
-    <img loading="lazy" decoding="async" src="/assets/img/habitar-la-altura-03.jpg" alt="01 — Habitar la altura">
+  <button class="plate-frame" type="button" data-label="01 — Habitar la altura · 03" aria-label="Ampliar 01 — Habitar la altura · 03">
+    <img loading="lazy" decoding="async" src="/assets/img/habitar-la-altura-03.jpg" width="1600" height="1132" alt="01 — Habitar la altura, lámina 03">
   </button>
   <figcaption>
     <span>01 — Habitar la altura</span>
@@ -155,8 +181,8 @@
   <div class="p-plates">
     
 <figure class="plate">
-  <button class="plate-frame" type="button" data-label="01 — Habitar la altura · 04" aria-label="Ampliar 01 — Habitar la altura">
-    <img loading="lazy" decoding="async" src="/assets/img/portada.jpg" alt="01 — Habitar la altura">
+  <button class="plate-frame" type="button" data-label="01 — Habitar la altura · 04" aria-label="Ampliar 01 — Habitar la altura · 04">
+    <img loading="lazy" decoding="async" src="/assets/img/portada.jpg" width="1600" height="1132" alt="01 — Habitar la altura, lámina 04">
   </button>
   <figcaption>
     <span>01 — Habitar la altura</span>
@@ -165,8 +191,8 @@
 </figure>
 
 <figure class="plate">
-  <button class="plate-frame" type="button" data-label="01 — Habitar la altura · 05" aria-label="Ampliar 01 — Habitar la altura">
-    <img loading="lazy" decoding="async" src="/assets/img/habitar-la-altura-05.jpg" alt="01 — Habitar la altura">
+  <button class="plate-frame" type="button" data-label="01 — Habitar la altura · 05" aria-label="Ampliar 01 — Habitar la altura · 05">
+    <img loading="lazy" decoding="async" src="/assets/img/habitar-la-altura-05.jpg" width="1600" height="1132" alt="01 — Habitar la altura, lámina 05">
   </button>
   <figcaption>
     <span>01 — Habitar la altura</span>
@@ -175,8 +201,8 @@
 </figure>
 
 <figure class="plate">
-  <button class="plate-frame" type="button" data-label="01 — Habitar la altura · 06" aria-label="Ampliar 01 — Habitar la altura">
-    <img loading="lazy" decoding="async" src="/assets/img/habitar-la-altura-06.jpg" alt="01 — Habitar la altura">
+  <button class="plate-frame" type="button" data-label="01 — Habitar la altura · 06" aria-label="Ampliar 01 — Habitar la altura · 06">
+    <img loading="lazy" decoding="async" src="/assets/img/habitar-la-altura-06.jpg" width="1600" height="1132" alt="01 — Habitar la altura, lámina 06">
   </button>
   <figcaption>
     <span>01 — Habitar la altura</span>
@@ -185,8 +211,8 @@
 </figure>
 
 <figure class="plate">
-  <button class="plate-frame" type="button" data-label="01 — Habitar la altura · 07" aria-label="Ampliar 01 — Habitar la altura">
-    <img loading="lazy" decoding="async" src="/assets/img/habitar-la-altura-07.jpg" alt="01 — Habitar la altura">
+  <button class="plate-frame" type="button" data-label="01 — Habitar la altura · 07" aria-label="Ampliar 01 — Habitar la altura · 07">
+    <img loading="lazy" decoding="async" src="/assets/img/habitar-la-altura-07.jpg" width="1600" height="1132" alt="01 — Habitar la altura, lámina 07">
   </button>
   <figcaption>
     <span>01 — Habitar la altura</span>
@@ -213,8 +239,8 @@
     </div>
     
 <figure class="plate">
-  <button class="plate-frame" type="button" data-label="02 — Viviendas colectivas · 08" aria-label="Ampliar 02 — Viviendas colectivas">
-    <img loading="lazy" decoding="async" src="/assets/img/viviendas-colectivas-08.jpg" alt="02 — Viviendas colectivas">
+  <button class="plate-frame" type="button" data-label="02 — Viviendas colectivas · 08" aria-label="Ampliar 02 — Viviendas colectivas · 08">
+    <img loading="lazy" decoding="async" src="/assets/img/viviendas-colectivas-08.jpg" width="1600" height="1132" alt="02 — Viviendas colectivas, lámina 08">
   </button>
   <figcaption>
     <span>02 — Viviendas colectivas</span>
@@ -226,8 +252,8 @@
   <div class="p-plates">
     
 <figure class="plate">
-  <button class="plate-frame" type="button" data-label="02 — Viviendas colectivas · 09" aria-label="Ampliar 02 — Viviendas colectivas">
-    <img loading="lazy" decoding="async" src="/assets/img/viviendas-colectivas-09.jpg" alt="02 — Viviendas colectivas">
+  <button class="plate-frame" type="button" data-label="02 — Viviendas colectivas · 09" aria-label="Ampliar 02 — Viviendas colectivas · 09">
+    <img loading="lazy" decoding="async" src="/assets/img/viviendas-colectivas-09.jpg" width="1600" height="1132" alt="02 — Viviendas colectivas, lámina 09">
   </button>
   <figcaption>
     <span>02 — Viviendas colectivas</span>
@@ -236,8 +262,8 @@
 </figure>
 
 <figure class="plate">
-  <button class="plate-frame" type="button" data-label="02 — Viviendas colectivas · 10" aria-label="Ampliar 02 — Viviendas colectivas">
-    <img loading="lazy" decoding="async" src="/assets/img/viviendas-colectivas-10.jpg" alt="02 — Viviendas colectivas">
+  <button class="plate-frame" type="button" data-label="02 — Viviendas colectivas · 10" aria-label="Ampliar 02 — Viviendas colectivas · 10">
+    <img loading="lazy" decoding="async" src="/assets/img/viviendas-colectivas-10.jpg" width="1600" height="1132" alt="02 — Viviendas colectivas, lámina 10">
   </button>
   <figcaption>
     <span>02 — Viviendas colectivas</span>
@@ -246,8 +272,8 @@
 </figure>
 
 <figure class="plate">
-  <button class="plate-frame" type="button" data-label="02 — Viviendas colectivas · 11" aria-label="Ampliar 02 — Viviendas colectivas">
-    <img loading="lazy" decoding="async" src="/assets/img/viviendas-colectivas-11.jpg" alt="02 — Viviendas colectivas">
+  <button class="plate-frame" type="button" data-label="02 — Viviendas colectivas · 11" aria-label="Ampliar 02 — Viviendas colectivas · 11">
+    <img loading="lazy" decoding="async" src="/assets/img/viviendas-colectivas-11.jpg" width="1600" height="1132" alt="02 — Viviendas colectivas, lámina 11">
   </button>
   <figcaption>
     <span>02 — Viviendas colectivas</span>
@@ -256,8 +282,8 @@
 </figure>
 
 <figure class="plate">
-  <button class="plate-frame" type="button" data-label="02 — Viviendas colectivas · 12" aria-label="Ampliar 02 — Viviendas colectivas">
-    <img loading="lazy" decoding="async" src="/assets/img/viviendas-colectivas-12.jpg" alt="02 — Viviendas colectivas">
+  <button class="plate-frame" type="button" data-label="02 — Viviendas colectivas · 12" aria-label="Ampliar 02 — Viviendas colectivas · 12">
+    <img loading="lazy" decoding="async" src="/assets/img/viviendas-colectivas-12.jpg" width="1600" height="1132" alt="02 — Viviendas colectivas, lámina 12">
   </button>
   <figcaption>
     <span>02 — Viviendas colectivas</span>
@@ -284,8 +310,8 @@
     </div>
     
 <figure class="plate">
-  <button class="plate-frame" type="button" data-label="03 — Concurso Kaira Looro · 13" aria-label="Ampliar 03 — Concurso Kaira Looro">
-    <img loading="lazy" decoding="async" src="/assets/img/concurso-kaira-looro-13.jpg" alt="03 — Concurso Kaira Looro">
+  <button class="plate-frame" type="button" data-label="03 — Concurso Kaira Looro · 13" aria-label="Ampliar 03 — Concurso Kaira Looro · 13">
+    <img loading="lazy" decoding="async" src="/assets/img/concurso-kaira-looro-13.jpg" width="1600" height="1132" alt="03 — Concurso Kaira Looro, lámina 13">
   </button>
   <figcaption>
     <span>03 — Concurso Kaira Looro</span>
@@ -297,8 +323,8 @@
   <div class="p-plates">
     
 <figure class="plate">
-  <button class="plate-frame" type="button" data-label="03 — Concurso Kaira Looro · 14" aria-label="Ampliar 03 — Concurso Kaira Looro">
-    <img loading="lazy" decoding="async" src="/assets/img/concurso-kaira-looro-14.jpg" alt="03 — Concurso Kaira Looro">
+  <button class="plate-frame" type="button" data-label="03 — Concurso Kaira Looro · 14" aria-label="Ampliar 03 — Concurso Kaira Looro · 14">
+    <img loading="lazy" decoding="async" src="/assets/img/concurso-kaira-looro-14.jpg" width="1600" height="1132" alt="03 — Concurso Kaira Looro, lámina 14">
   </button>
   <figcaption>
     <span>03 — Concurso Kaira Looro</span>
@@ -307,8 +333,8 @@
 </figure>
 
 <figure class="plate">
-  <button class="plate-frame" type="button" data-label="03 — Concurso Kaira Looro · 15" aria-label="Ampliar 03 — Concurso Kaira Looro">
-    <img loading="lazy" decoding="async" src="/assets/img/concurso-kaira-looro-15.jpg" alt="03 — Concurso Kaira Looro">
+  <button class="plate-frame" type="button" data-label="03 — Concurso Kaira Looro · 15" aria-label="Ampliar 03 — Concurso Kaira Looro · 15">
+    <img loading="lazy" decoding="async" src="/assets/img/concurso-kaira-looro-15.jpg" width="1600" height="1132" alt="03 — Concurso Kaira Looro, lámina 15">
   </button>
   <figcaption>
     <span>03 — Concurso Kaira Looro</span>
@@ -317,8 +343,8 @@
 </figure>
 
 <figure class="plate">
-  <button class="plate-frame" type="button" data-label="03 — Concurso Kaira Looro · 16" aria-label="Ampliar 03 — Concurso Kaira Looro">
-    <img loading="lazy" decoding="async" src="/assets/img/concurso-kaira-looro-16.jpg" alt="03 — Concurso Kaira Looro">
+  <button class="plate-frame" type="button" data-label="03 — Concurso Kaira Looro · 16" aria-label="Ampliar 03 — Concurso Kaira Looro · 16">
+    <img loading="lazy" decoding="async" src="/assets/img/concurso-kaira-looro-16.jpg" width="1600" height="1132" alt="03 — Concurso Kaira Looro, lámina 16">
   </button>
   <figcaption>
     <span>03 — Concurso Kaira Looro</span>
@@ -327,8 +353,8 @@
 </figure>
 
 <figure class="plate">
-  <button class="plate-frame" type="button" data-label="03 — Concurso Kaira Looro · 17" aria-label="Ampliar 03 — Concurso Kaira Looro">
-    <img loading="lazy" decoding="async" src="/assets/img/concurso-kaira-looro-17.jpg" alt="03 — Concurso Kaira Looro">
+  <button class="plate-frame" type="button" data-label="03 — Concurso Kaira Looro · 17" aria-label="Ampliar 03 — Concurso Kaira Looro · 17">
+    <img loading="lazy" decoding="async" src="/assets/img/concurso-kaira-looro-17.jpg" width="1600" height="1132" alt="03 — Concurso Kaira Looro, lámina 17">
   </button>
   <figcaption>
     <span>03 — Concurso Kaira Looro</span>
@@ -355,8 +381,8 @@
     </div>
     
 <figure class="plate">
-  <button class="plate-frame" type="button" data-label="04 — Complejo Aconcagua · 18" aria-label="Ampliar 04 — Complejo Aconcagua">
-    <img loading="lazy" decoding="async" src="/assets/img/complejo-aconcagua-18.jpg" alt="04 — Complejo Aconcagua">
+  <button class="plate-frame" type="button" data-label="04 — Complejo Aconcagua · 18" aria-label="Ampliar 04 — Complejo Aconcagua · 18">
+    <img loading="lazy" decoding="async" src="/assets/img/complejo-aconcagua-18.jpg" width="1600" height="1132" alt="04 — Complejo Aconcagua, lámina 18">
   </button>
   <figcaption>
     <span>04 — Complejo Aconcagua</span>
@@ -368,8 +394,8 @@
   <div class="p-plates">
     
 <figure class="plate">
-  <button class="plate-frame" type="button" data-label="04 — Complejo Aconcagua · 19" aria-label="Ampliar 04 — Complejo Aconcagua">
-    <img loading="lazy" decoding="async" src="/assets/img/complejo-aconcagua-19.jpg" alt="04 — Complejo Aconcagua">
+  <button class="plate-frame" type="button" data-label="04 — Complejo Aconcagua · 19" aria-label="Ampliar 04 — Complejo Aconcagua · 19">
+    <img loading="lazy" decoding="async" src="/assets/img/complejo-aconcagua-19.jpg" width="1600" height="1132" alt="04 — Complejo Aconcagua, lámina 19">
   </button>
   <figcaption>
     <span>04 — Complejo Aconcagua</span>
@@ -378,8 +404,8 @@
 </figure>
 
 <figure class="plate">
-  <button class="plate-frame" type="button" data-label="04 — Complejo Aconcagua · 20" aria-label="Ampliar 04 — Complejo Aconcagua">
-    <img loading="lazy" decoding="async" src="/assets/img/complejo-aconcagua-20.jpg" alt="04 — Complejo Aconcagua">
+  <button class="plate-frame" type="button" data-label="04 — Complejo Aconcagua · 20" aria-label="Ampliar 04 — Complejo Aconcagua · 20">
+    <img loading="lazy" decoding="async" src="/assets/img/complejo-aconcagua-20.jpg" width="1600" height="1132" alt="04 — Complejo Aconcagua, lámina 20">
   </button>
   <figcaption>
     <span>04 — Complejo Aconcagua</span>
@@ -388,8 +414,8 @@
 </figure>
 
 <figure class="plate">
-  <button class="plate-frame" type="button" data-label="04 — Complejo Aconcagua · 21" aria-label="Ampliar 04 — Complejo Aconcagua">
-    <img loading="lazy" decoding="async" src="/assets/img/complejo-aconcagua-21.jpg" alt="04 — Complejo Aconcagua">
+  <button class="plate-frame" type="button" data-label="04 — Complejo Aconcagua · 21" aria-label="Ampliar 04 — Complejo Aconcagua · 21">
+    <img loading="lazy" decoding="async" src="/assets/img/complejo-aconcagua-21.jpg" width="1600" height="1132" alt="04 — Complejo Aconcagua, lámina 21">
   </button>
   <figcaption>
     <span>04 — Complejo Aconcagua</span>
@@ -398,8 +424,8 @@
 </figure>
 
 <figure class="plate">
-  <button class="plate-frame" type="button" data-label="04 — Complejo Aconcagua · 22" aria-label="Ampliar 04 — Complejo Aconcagua">
-    <img loading="lazy" decoding="async" src="/assets/img/complejo-aconcagua-22.jpg" alt="04 — Complejo Aconcagua">
+  <button class="plate-frame" type="button" data-label="04 — Complejo Aconcagua · 22" aria-label="Ampliar 04 — Complejo Aconcagua · 22">
+    <img loading="lazy" decoding="async" src="/assets/img/complejo-aconcagua-22.jpg" width="1600" height="1132" alt="04 — Complejo Aconcagua, lámina 22">
   </button>
   <figcaption>
     <span>04 — Complejo Aconcagua</span>
@@ -426,8 +452,8 @@
     </div>
     
 <figure class="plate">
-  <button class="plate-frame" type="button" data-label="05 — Viviendas urbanas · 23" aria-label="Ampliar 05 — Viviendas urbanas">
-    <img loading="lazy" decoding="async" src="/assets/img/viviendas-urbanas-23.jpg" alt="05 — Viviendas urbanas">
+  <button class="plate-frame" type="button" data-label="05 — Viviendas urbanas · 23" aria-label="Ampliar 05 — Viviendas urbanas · 23">
+    <img loading="lazy" decoding="async" src="/assets/img/viviendas-urbanas-23.jpg" width="1600" height="1132" alt="05 — Viviendas urbanas, lámina 23">
   </button>
   <figcaption>
     <span>05 — Viviendas urbanas</span>
@@ -439,8 +465,8 @@
   <div class="p-plates">
     
 <figure class="plate">
-  <button class="plate-frame" type="button" data-label="05 — Viviendas urbanas · 24" aria-label="Ampliar 05 — Viviendas urbanas">
-    <img loading="lazy" decoding="async" src="/assets/img/viviendas-urbanas-24.jpg" alt="05 — Viviendas urbanas">
+  <button class="plate-frame" type="button" data-label="05 — Viviendas urbanas · 24" aria-label="Ampliar 05 — Viviendas urbanas · 24">
+    <img loading="lazy" decoding="async" src="/assets/img/viviendas-urbanas-24.jpg" width="1600" height="1132" alt="05 — Viviendas urbanas, lámina 24">
   </button>
   <figcaption>
     <span>05 — Viviendas urbanas</span>
@@ -449,8 +475,8 @@
 </figure>
 
 <figure class="plate">
-  <button class="plate-frame" type="button" data-label="05 — Viviendas urbanas · 25" aria-label="Ampliar 05 — Viviendas urbanas">
-    <img loading="lazy" decoding="async" src="/assets/img/viviendas-urbanas-25.jpg" alt="05 — Viviendas urbanas">
+  <button class="plate-frame" type="button" data-label="05 — Viviendas urbanas · 25" aria-label="Ampliar 05 — Viviendas urbanas · 25">
+    <img loading="lazy" decoding="async" src="/assets/img/viviendas-urbanas-25.jpg" width="1600" height="1132" alt="05 — Viviendas urbanas, lámina 25">
   </button>
   <figcaption>
     <span>05 — Viviendas urbanas</span>
@@ -459,8 +485,8 @@
 </figure>
 
 <figure class="plate">
-  <button class="plate-frame" type="button" data-label="05 — Viviendas urbanas · 26" aria-label="Ampliar 05 — Viviendas urbanas">
-    <img loading="lazy" decoding="async" src="/assets/img/viviendas-urbanas-26.jpg" alt="05 — Viviendas urbanas">
+  <button class="plate-frame" type="button" data-label="05 — Viviendas urbanas · 26" aria-label="Ampliar 05 — Viviendas urbanas · 26">
+    <img loading="lazy" decoding="async" src="/assets/img/viviendas-urbanas-26.jpg" width="1600" height="1132" alt="05 — Viviendas urbanas, lámina 26">
   </button>
   <figcaption>
     <span>05 — Viviendas urbanas</span>
@@ -469,8 +495,8 @@
 </figure>
 
 <figure class="plate">
-  <button class="plate-frame" type="button" data-label="05 — Viviendas urbanas · 27" aria-label="Ampliar 05 — Viviendas urbanas">
-    <img loading="lazy" decoding="async" src="/assets/img/viviendas-urbanas-27.jpg" alt="05 — Viviendas urbanas">
+  <button class="plate-frame" type="button" data-label="05 — Viviendas urbanas · 27" aria-label="Ampliar 05 — Viviendas urbanas · 27">
+    <img loading="lazy" decoding="async" src="/assets/img/viviendas-urbanas-27.jpg" width="1600" height="1132" alt="05 — Viviendas urbanas, lámina 27">
   </button>
   <figcaption>
     <span>05 — Viviendas urbanas</span>
@@ -497,8 +523,8 @@
     </div>
     
 <figure class="plate">
-  <button class="plate-frame" type="button" data-label="06 — Complejo multicultural · 28" aria-label="Ampliar 06 — Complejo multicultural">
-    <img loading="lazy" decoding="async" src="/assets/img/complejo-multicultural-28.jpg" alt="06 — Complejo multicultural">
+  <button class="plate-frame" type="button" data-label="06 — Complejo multicultural · 28" aria-label="Ampliar 06 — Complejo multicultural · 28">
+    <img loading="lazy" decoding="async" src="/assets/img/complejo-multicultural-28.jpg" width="1600" height="1132" alt="06 — Complejo multicultural, lámina 28">
   </button>
   <figcaption>
     <span>06 — Complejo multicultural</span>
@@ -510,8 +536,8 @@
   <div class="p-plates">
     
 <figure class="plate">
-  <button class="plate-frame" type="button" data-label="06 — Complejo multicultural · 29" aria-label="Ampliar 06 — Complejo multicultural">
-    <img loading="lazy" decoding="async" src="/assets/img/complejo-multicultural-29.jpg" alt="06 — Complejo multicultural">
+  <button class="plate-frame" type="button" data-label="06 — Complejo multicultural · 29" aria-label="Ampliar 06 — Complejo multicultural · 29">
+    <img loading="lazy" decoding="async" src="/assets/img/complejo-multicultural-29.jpg" width="1600" height="1132" alt="06 — Complejo multicultural, lámina 29">
   </button>
   <figcaption>
     <span>06 — Complejo multicultural</span>
@@ -520,8 +546,8 @@
 </figure>
 
 <figure class="plate">
-  <button class="plate-frame" type="button" data-label="06 — Complejo multicultural · 30" aria-label="Ampliar 06 — Complejo multicultural">
-    <img loading="lazy" decoding="async" src="/assets/img/complejo-multicultural-30.jpg" alt="06 — Complejo multicultural">
+  <button class="plate-frame" type="button" data-label="06 — Complejo multicultural · 30" aria-label="Ampliar 06 — Complejo multicultural · 30">
+    <img loading="lazy" decoding="async" src="/assets/img/complejo-multicultural-30.jpg" width="1600" height="1132" alt="06 — Complejo multicultural, lámina 30">
   </button>
   <figcaption>
     <span>06 — Complejo multicultural</span>
@@ -530,8 +556,8 @@
 </figure>
 
 <figure class="plate">
-  <button class="plate-frame" type="button" data-label="06 — Complejo multicultural · 31" aria-label="Ampliar 06 — Complejo multicultural">
-    <img loading="lazy" decoding="async" src="/assets/img/complejo-multicultural-31.jpg" alt="06 — Complejo multicultural">
+  <button class="plate-frame" type="button" data-label="06 — Complejo multicultural · 31" aria-label="Ampliar 06 — Complejo multicultural · 31">
+    <img loading="lazy" decoding="async" src="/assets/img/complejo-multicultural-31.jpg" width="1600" height="1132" alt="06 — Complejo multicultural, lámina 31">
   </button>
   <figcaption>
     <span>06 — Complejo multicultural</span>
@@ -540,8 +566,8 @@
 </figure>
 
 <figure class="plate">
-  <button class="plate-frame" type="button" data-label="06 — Complejo multicultural · 32" aria-label="Ampliar 06 — Complejo multicultural">
-    <img loading="lazy" decoding="async" src="/assets/img/complejo-multicultural-32.jpg" alt="06 — Complejo multicultural">
+  <button class="plate-frame" type="button" data-label="06 — Complejo multicultural · 32" aria-label="Ampliar 06 — Complejo multicultural · 32">
+    <img loading="lazy" decoding="async" src="/assets/img/complejo-multicultural-32.jpg" width="1600" height="1132" alt="06 — Complejo multicultural, lámina 32">
   </button>
   <figcaption>
     <span>06 — Complejo multicultural</span>
@@ -568,8 +594,8 @@
     </div>
     
 <figure class="plate">
-  <button class="plate-frame" type="button" data-label="07 — Interiorismo · 33" aria-label="Ampliar 07 — Interiorismo">
-    <img loading="lazy" decoding="async" src="/assets/img/interiorismo-33.jpg" alt="07 — Interiorismo">
+  <button class="plate-frame" type="button" data-label="07 — Interiorismo · 33" aria-label="Ampliar 07 — Interiorismo · 33">
+    <img loading="lazy" decoding="async" src="/assets/img/interiorismo-33.jpg" width="1600" height="1132" alt="07 — Interiorismo, lámina 33">
   </button>
   <figcaption>
     <span>07 — Interiorismo</span>
@@ -581,8 +607,8 @@
   <div class="p-plates">
     
 <figure class="plate">
-  <button class="plate-frame" type="button" data-label="07 — Interiorismo · 34" aria-label="Ampliar 07 — Interiorismo">
-    <img loading="lazy" decoding="async" src="/assets/img/interiorismo-34.jpg" alt="07 — Interiorismo">
+  <button class="plate-frame" type="button" data-label="07 — Interiorismo · 34" aria-label="Ampliar 07 — Interiorismo · 34">
+    <img loading="lazy" decoding="async" src="/assets/img/interiorismo-34.jpg" width="1600" height="1132" alt="07 — Interiorismo, lámina 34">
   </button>
   <figcaption>
     <span>07 — Interiorismo</span>
@@ -591,8 +617,8 @@
 </figure>
 
 <figure class="plate">
-  <button class="plate-frame" type="button" data-label="07 — Interiorismo · 35" aria-label="Ampliar 07 — Interiorismo">
-    <img loading="lazy" decoding="async" src="/assets/img/interiorismo-35.jpg" alt="07 — Interiorismo">
+  <button class="plate-frame" type="button" data-label="07 — Interiorismo · 35" aria-label="Ampliar 07 — Interiorismo · 35">
+    <img loading="lazy" decoding="async" src="/assets/img/interiorismo-35.jpg" width="1600" height="1132" alt="07 — Interiorismo, lámina 35">
   </button>
   <figcaption>
     <span>07 — Interiorismo</span>
@@ -601,8 +627,8 @@
 </figure>
 
 <figure class="plate">
-  <button class="plate-frame" type="button" data-label="07 — Interiorismo · 36" aria-label="Ampliar 07 — Interiorismo">
-    <img loading="lazy" decoding="async" src="/assets/img/interiorismo-36.jpg" alt="07 — Interiorismo">
+  <button class="plate-frame" type="button" data-label="07 — Interiorismo · 36" aria-label="Ampliar 07 — Interiorismo · 36">
+    <img loading="lazy" decoding="async" src="/assets/img/interiorismo-36.jpg" width="1600" height="1132" alt="07 — Interiorismo, lámina 36">
   </button>
   <figcaption>
     <span>07 — Interiorismo</span>
@@ -611,8 +637,8 @@
 </figure>
 
 <figure class="plate">
-  <button class="plate-frame" type="button" data-label="07 — Interiorismo · 37" aria-label="Ampliar 07 — Interiorismo">
-    <img loading="lazy" decoding="async" src="/assets/img/interiorismo-37.jpg" alt="07 — Interiorismo">
+  <button class="plate-frame" type="button" data-label="07 — Interiorismo · 37" aria-label="Ampliar 07 — Interiorismo · 37">
+    <img loading="lazy" decoding="async" src="/assets/img/interiorismo-37.jpg" width="1600" height="1132" alt="07 — Interiorismo, lámina 37">
   </button>
   <figcaption>
     <span>07 — Interiorismo</span>
@@ -625,7 +651,7 @@
 
 
   <section class="colophon" id="colophon">
-    <h2>Ficha</h2>
+    <h2>Contacto</h2>
     <dl>
       <div><dt>Autor</dt><dd>Narvaez Rocío</dd></div>
       <div><dt>Contacto</dt><dd><a href="tel:+5492612498460">261 249-8460</a> · <a href="mailto:roocinarvaez28@gmail.com">roocinarvaez28@gmail.com</a> · <a href="https://www.linkedin.com/in/rocio-narvaez-b86276258" target="_blank" rel="noopener">LinkedIn</a></dd></div>

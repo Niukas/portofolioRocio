@@ -8,16 +8,43 @@
   const links = [...document.querySelectorAll('.side-nav a[data-id]')];
 
   /* ---------- Navegación lateral: obra activa ---------- */
-  const navMap = Object.fromEntries(links.map(a => [a.dataset.id, a]));
   const navIO = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (!e.isIntersecting) return;
-      links.forEach(a => a.classList.remove('is-active'));
-      const a = navMap[e.target.dataset.id];
-      if (a) a.classList.add('is-active');
+      const id = e.target.dataset.id;
+      document.querySelectorAll('.side-nav a[data-id], .m-sheet a[data-id]').forEach(a => {
+        const on = a.dataset.id === id;
+        a.classList.toggle('is-active', on);
+        if (on) a.setAttribute('aria-current', 'location'); else a.removeAttribute('aria-current');
+      });
     });
   }, { rootMargin: '-35% 0px -50% 0px', threshold: 0 });
   articles.forEach(el => navIO.observe(el));
+
+  /* ---------- Navegación móvil ---------- */
+  const mToggle = document.querySelector('.m-toggle');
+  const mSheet = document.getElementById('mSheet');
+  if (mToggle && mSheet) {
+    links.forEach(a => mSheet.appendChild(a.cloneNode(true)));
+    [['#perfil', 'Perfil'], ['#indice', 'Índice'], ['#colophon', 'Contacto']].forEach(([href, txt]) => {
+      const a = document.createElement('a');
+      a.href = href;
+      a.innerHTML = `<em>—</em><span>${txt}</span>`;
+      mSheet.appendChild(a);
+    });
+    const setSheet = open => {
+      mSheet.hidden = !open;
+      mToggle.setAttribute('aria-expanded', open);
+    };
+    mToggle.addEventListener('click', () => setSheet(mSheet.hidden));
+    mSheet.addEventListener('click', e => { if (e.target.closest('a')) setSheet(false); });
+    document.addEventListener('click', e => {
+      if (!mSheet.hidden && !mSheet.contains(e.target) && !mToggle.contains(e.target)) setSheet(false);
+    });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && !mSheet.hidden) { setSheet(false); mToggle.focus(); }
+    });
+  }
 
   /* ---------- Barra de progreso de lectura ---------- */
   const bar = document.createElement('div');
@@ -99,7 +126,7 @@
       (prev ? `<a class="prev" href="#${prev.id}"><small>‹ Anterior</small><span>${prev.num} — ${prev.title}</span></a>`
             : `<a class="prev" href="#indice"><small>‹ Volver</small><span>Índice</span></a>`) +
       (next ? `<a class="next" href="#${next.id}"><small>Siguiente ›</small><span>${next.num} — ${next.title}</span></a>`
-            : `<a class="next" href="#perfil"><small>Fin ›</small><span>Perfil</span></a>`);
+            : `<a class="next" href="#colophon"><small>Fin ›</small><span>Contacto</span></a>`);
     a.appendChild(nav);
   });
 
@@ -190,6 +217,11 @@
     lb.classList.add('is-open');
     document.body.classList.add('lb-on');
     lbClose.focus({ preventScroll: true });
+    // Precarga la anterior y la siguiente para que el cambio sea instantáneo
+    [lbI - 1, lbI + 1].forEach(j => {
+      const n = plates[(j + plates.length) % plates.length];
+      if (n) new Image().src = n.querySelector('img').src;
+    });
   }
   function closeLb() {
     lb.classList.remove('is-open');
@@ -212,7 +244,15 @@
 
   document.addEventListener('keydown', e => {
     if (!isOpen()) return;
-    if (e.key === 'Escape') closeLb();
+    if (e.key === 'Tab') {
+      // Mantiene el foco dentro del visor
+      const f = [...lb.querySelectorAll('button')];
+      const i = f.indexOf(document.activeElement);
+      const n = e.shiftKey ? (i <= 0 ? f.length - 1 : i - 1) : (i + 1) % f.length;
+      e.preventDefault();
+      f[n].focus();
+    }
+    else if (e.key === 'Escape') closeLb();
     else if (e.key === 'ArrowLeft') prevLb();
     else if (e.key === 'ArrowRight') nextLb();
     else if (e.key === '+' || e.key === '=') zoomCenter(1.6);
